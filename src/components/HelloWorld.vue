@@ -5,7 +5,6 @@
 
     const props = defineProps<{ title: string; msg: string; likes?: number }>()
     const store = useStore()
-    console.log(store)
 
     const { count, importData } = storeToRefs(store)
 </script>

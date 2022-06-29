@@ -26,7 +26,7 @@
         }
     },
     "dependencies": {
-        "@element-plus/icons-vue": "^2.0.6",
+        @element-plus/icons-vue": "^2.0.6",
         "@socheatsok78/storybook-addon-vuetify": "^0.1.9",
         "@tailwindcss/aspect-ratio": "^0.4.0",
         "@tailwindcss/forms": "^0.5.2",

@@ -6,6 +6,6 @@ import { AuthPlugin } from './types'
  * templates.
  */
 export function useAuth(): AuthPlugin {
-  // eslint-disable-next-line
-  return authInstance!
+    // eslint-disable-next-line
+	return authInstance!
 }

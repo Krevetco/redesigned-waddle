@@ -4,26 +4,26 @@ Vuelix is a Vue 3 + Vite starter template to scaffold new projects really fast a
 
 ## Table of contents
 
-- [Setup](#setup)
-- [Build](#build)
-- [Features](#features)
-  - [🚀 Vue 3 + Vite 2](#-vue-3--vite-2)
-  - [🦾 TypeScript and SCSS](#-typescript-and-scss)
-  - [🗂 File system routing](#-file-system-routing)
-  - [📑 Layouts system](#-layouts-system)
-  - [🔗 Path Aliasing](#-path-aliasing)
-  - [😃 Universal Icons Framework](#-universal-icons-framework)
-  - [✨ Routes Transitions](#-routes-transitions)
-  - [🪄 Eslint + Prettier](#-eslint--prettier)
-  - [🔧 OpenAPI Client Generator](#-openapi-client-generator)
-  - [👤 Authentication System](#-authentication-system)
-    - [The Auth Plugin](#the-auth-plugin)
-    - [The Navigation Guards](#the-navigation-guards)
-    - [The Axios Interceptors](#the-axios-interceptors)
-  - [🌐 Internationalization: vue-i18n and vue-i18n-extract](#-internationalization-vue-i18n-and-vue-i18n-extract)
-- [Recommended IDE Setup](#recommended-ide-setup)
-- [Deployment](#deployment)
-  - [Heroku](#heroku)
+-   [Setup](#setup)
+-   [Build](#build)
+-   [Features](#features)
+    -   [🚀 Vue 3 + Vite 2](#-vue-3--vite-2)
+    -   [🦾 TypeScript and SCSS](#-typescript-and-scss)
+    -   [🗂 File system routing](#-file-system-routing)
+    -   [📑 Layouts system](#-layouts-system)
+    -   [🔗 Path Aliasing](#-path-aliasing)
+    -   [😃 Universal Icons Framework](#-universal-icons-framework)
+    -   [✨ Routes Transitions](#-routes-transitions)
+    -   [🪄 Eslint + Prettier](#-eslint--prettier)
+    -   [🔧 OpenAPI Client Generator](#-openapi-client-generator)
+    -   [👤 Authentication System](#-authentication-system)
+        -   [The Auth Plugin](#the-auth-plugin)
+        -   [The Navigation Guards](#the-navigation-guards)
+        -   [The Axios Interceptors](#the-axios-interceptors)
+    -   [🌐 Internationalization: vue-i18n and vue-i18n-extract](#-internationalization-vue-i18n-and-vue-i18n-extract)
+-   [Recommended IDE Setup](#recommended-ide-setup)
+-   [Deployment](#deployment)
+    -   [Heroku](#heroku)
 
 ## Setup
 
@@ -77,9 +77,9 @@ all the community-created plugins.
 
 See:
 
-- [Vue 3 Docs](https://v3.vuejs.org)
-- [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup)
-- [Vite Docs](https://vitejs.dev/guide/features.html)
+-   [Vue 3 Docs](https://v3.vuejs.org)
+-   [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup)
+-   [Vite Docs](https://vitejs.dev/guide/features.html)
 
 ### 🦾 TypeScript and SCSS
 
@@ -87,8 +87,8 @@ TypeScript and SCSS languages are supported and strongly recommended.
 
 See:
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [SCSS](https://sass-lang.com/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [SCSS](https://sass-lang.com/)
 
 ### 🗂 File system routing
 
@@ -96,7 +96,7 @@ Routes for `vue-router` will be auto-generated from Vue files in the `src/pages`
 
 See:
 
-- [vite-plugin-pages](https://github.com/hannoeru/vite-plugin-pages)
+-   [vite-plugin-pages](https://github.com/hannoeru/vite-plugin-pages)
 
 ### 📑 Layouts system
 
@@ -108,14 +108,14 @@ You can specify the layout in the page's SFCs like this:
 ```vue
 <route lang="yaml">
 meta:
-  layout: home
+    layout: home
 </route>
 ```
 
 See:
 
-- [vite-plugin-vue-layouts](https://github.com/JohnCampionJr/vite-plugin-vue-layouts)
-- [vite-plugin-pages](https://github.com/hannoeru/vite-plugin-pages)
+-   [vite-plugin-vue-layouts](https://github.com/JohnCampionJr/vite-plugin-vue-layouts)
+-   [vite-plugin-pages](https://github.com/hannoeru/vite-plugin-pages)
 
 ### 🔗 Path Aliasing
 
@@ -160,10 +160,10 @@ and finally the `icon` is the icon name.
 
 See:
 
-- [unplugin-icons](https://github.com/antfu/unplugin-icons)
-- [iconify](https://iconify.design/)
-- [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
-- [Icônes - to search for icons available in iconify](https://icones.js.org/)
+-   [unplugin-icons](https://github.com/antfu/unplugin-icons)
+-   [iconify](https://iconify.design/)
+-   [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
+-   [Icônes - to search for icons available in iconify](https://icones.js.org/)
 
 ### ✨ Routes Transitions
 
@@ -175,17 +175,17 @@ You can specify the transition in the page's SFCs like this:
 ```vue
 <route lang="yaml">
 meta:
-  transition: slide-fade
+    transition: slide-fade
 </route>
 ```
 
 > _NOTE:_ Transitions are not triggered between routes of the same type, therefore changing the parameters of the active route won't cause a route transition. This could be changed by using the `route.fullPath` instead of `route.name` as the key in [RouterViewTransition.vue](./src/components/RouterViewTransition.vue). More info: https://stackoverflow.com/a/70042452/4873750.
 
-> Route transitions can be deactivated by changing the provided `enable-route-transitions` value in [main.ts](./src/main.ts).
+> Route transitions can be deactivated by changing the provided `enable-route-transitions` value in [main.js](./src/main.ts).
 
 See:
 
-- [RouterViewTransition.vue](./src/components/RouterViewTransition.vue)
+-   [RouterViewTransition.vue](./src/components/RouterViewTransition.vue)
 
 ### 🪄 Eslint + Prettier
 
@@ -200,11 +200,11 @@ Aditionally, commands to lint, check and autoformat code are available in the sc
 
 See:
 
-- [Eslint](https://eslint.org/)
-- [Prettier](https://prettier.io/docs/en/comparison.html)
-- [eslint-plugin-vue](https://eslint.vuejs.org/)
-- [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
-- [vue-eslint-parser](https://github.com/vuejs/vue-eslint-parser)
+-   [Eslint](https://eslint.org/)
+-   [Prettier](https://prettier.io/docs/en/comparison.html)
+-   [eslint-plugin-vue](https://eslint.vuejs.org/)
+-   [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+-   [vue-eslint-parser](https://github.com/vuejs/vue-eslint-parser)
 
 ### 🔧 OpenAPI Client Generator
 
@@ -254,36 +254,36 @@ Then in your Vue Components:
 ```html
 <!-- "pages/home.vue" -->
 <script setup lang="ts">
-  import { petApi } from '@/api'
-  import { Pet, PetStatusEnum } from '@/api-client'
-  import { ref } from 'vue'
+    import { petApi } from '@/api'
+    import { Pet, PetStatusEnum } from '@/api-client'
+    import { ref } from 'vue'
 
-  const pets = ref<Pet[]>()
-  const loading = ref(false)
+    const pets = ref<Pet[]>()
+    const loading = ref(false)
 
-  async function testOpenAPI() {
-    loading.value = true
-    const { data } = await petApi.findPetsByStatus({ status: [PetStatusEnum.Available] })
-    pets.value = data.slice(0, 10)
-    loading.value = false
-  }
+    async function testOpenAPI() {
+        loading.value = true
+        const { data } = await petApi.findPetsByStatus({ status: [PetStatusEnum.Available] })
+        pets.value = data.slice(0, 10)
+        loading.value = false
+    }
 </script>
 ```
 
 See:
 
-- [OpenAPI Specification](https://swagger.io/docs/specification/about/)
-- [OpenAPI Generator](https://openapi-generator.tech/)
-- [OpenAPI Generator CLI](https://github.com/openapitools/openapi-generator-cli)
-- [OpenAPI typescript-axios generator](https://openapi-generator.tech/docs/generators/typescript-axios)
+-   [OpenAPI Specification](https://swagger.io/docs/specification/about/)
+-   [OpenAPI Generator](https://openapi-generator.tech/)
+-   [OpenAPI Generator CLI](https://github.com/openapitools/openapi-generator-cli)
+-   [OpenAPI typescript-axios generator](https://openapi-generator.tech/docs/generators/typescript-axios)
 
 ### 👤 Authentication System
 
 The auth system consist on three main parts:
 
-- The Plugin
-- The Navigation Guards
-- The Axios Interceptors
+-   The Plugin
+-   The Navigation Guards
+-   The Axios Interceptors
 
 #### The Auth Plugin
 
@@ -292,8 +292,8 @@ an `user` object, an `accessToken` plus the `login` and `logout` functions. It c
 
 ```html
 <span v-if="$auth.isAuthenticated">
-  Authenticated as <b>{{ $auth.user.email }}</b>
-  <button @click="$auth.logout">Logout</button>
+    Authenticated as <b>{{ $auth.user.email }}</b>
+    <button @click="$auth.logout">Logout</button>
 </span>
 <span v-else>Not Authenticated</span>
 ```
@@ -306,19 +306,19 @@ import { useAuth } from './useAuth'
 
 const auth = useAuth()
 if (auth.isAuthenticated) {
-  console.log(auth.userFullName)
+    console.log(auth.userFullName)
 }
 ```
 
 ```html
 <script setup lang="ts">
-  import { useAuth } from './useAuth'
-  import { watchEffect } from 'vue'
+    import { useAuth } from './useAuth'
+    import { watchEffect } from 'vue'
 
-  const auth = useAuth()
-  watchEffect(() => {
-    console.log(auth.isAuthenticated)
-  })
+    const auth = useAuth()
+    watchEffect(() => {
+        console.log(auth.isAuthenticated)
+    })
 </script>
 ```
 
@@ -337,23 +337,23 @@ configured in the page. E.g:
 <!-- pages/index.html -->
 <route lang="yaml">
 meta:
-  public: true
+    public: true
 </route>
 ```
 
 The navigation guards can be disabled by changing the `autoConfigureNavigationGuards` when configuring the auth system:
 
 ```ts
-// main.ts
+// main.js
 import { createApp } from 'vue'
 import { createAuth } from './auth'
 import App from './App.vue'
 import router from './router'
 
 const auth = createAuth({
-  router,
-  loginRouteName: 'login',
-  autoConfigureNavigationGuards: false,
+    router,
+    loginRouteName: 'login',
+    autoConfigureNavigationGuards: false,
 })
 
 const app = createApp(App)
@@ -378,7 +378,7 @@ export default axiosInstance
 ```
 
 ```ts
-// main.ts
+// main.js
 import { createApp } from 'vue'
 import { createAuth } from './auth'
 import App from './App.vue'
@@ -386,12 +386,12 @@ import router from './router'
 import axiosInstance from './api/axios'
 
 const auth = createAuth({
-  router,
-  axios: {
-    instance: axiosInstance,
-    autoAddAuthorizationHeader: true, // default: false
-    authorizationHeaderPrefix: 'Token', // default: 'Bearer'
-  },
+    router,
+    axios: {
+        instance: axiosInstance,
+        autoAddAuthorizationHeader: true, // default: false
+        authorizationHeaderPrefix: 'Token', // default: 'Bearer'
+    },
 })
 
 const app = createApp(App)
@@ -401,10 +401,10 @@ app.use(auth)
 
 See:
 
-- [Auth System](./src/auth)
-- [Vue Router - Navigation Guards](https://next.router.vuejs.org/guide/advanced/navigation-guards.html)
-- [Axios - Interceptors](https://github.com/axios/axios#interceptors)
-- [Vue Devtools - Plugin Registration](https://devtools.vuejs.org/plugin/plugins-guide.html#registering-your-plugin)
+-   [Auth System](./src/auth)
+-   [Vue Router - Navigation Guards](https://next.router.vuejs.org/guide/advanced/navigation-guards.html)
+-   [Axios - Interceptors](https://github.com/axios/axios#interceptors)
+-   [Vue Devtools - Plugin Registration](https://devtools.vuejs.org/plugin/plugins-guide.html#registering-your-plugin)
 
 ### 🌐 Internationalization: vue-i18n and vue-i18n-extract
 
@@ -429,10 +429,10 @@ and bind it to the attribute. -->
 
 // In TS:
 <script setup lang="ts">
-  import { useI18n } from 'vue-i18n'
+    import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
-  t('This is an example')
+    const { t } = useI18n()
+    t('This is an example')
 </script>
 ```
 
@@ -520,13 +520,13 @@ npm run vue-i18n-extract-remove
 
 See:
 
-- [Vue i18n](https://vue-i18n.intlify.dev/)
-- [Vue i18n extract](https://github.com/pixari/vue-i18n-extract)
-- [i18n plugin](./src/plugins/i18n.ts)
+-   [Vue i18n](https://vue-i18n.intlify.dev/)
+-   [Vue i18n extract](https://github.com/pixari/vue-i18n-extract)
+-   [i18n plugin](./src/plugins/i18n.ts)
 
 ## Recommended IDE Setup
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+-   [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 ## Deployment
 
@@ -534,9 +534,9 @@ See:
 
 In Heroku create the app, then configure the following buildpacks in the same order:
 
-- heroku/jvm
-- heroku/nodejs
-- heroku-community/static
+-   heroku/jvm
+-   heroku/nodejs
+-   heroku-community/static
 
 Config the Heroku remote:
 

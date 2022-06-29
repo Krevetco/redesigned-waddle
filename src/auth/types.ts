@@ -2,40 +2,40 @@ import { AxiosInstance } from 'axios'
 import { RouteLocationRaw, Router, RouteRecordName } from 'vue-router'
 
 export interface User {
-  id?: string
-  firstName: string
-  lastName: string
-  email?: string
+    id?: string
+    firstName: string
+    lastName: string
+    email?: string
 }
 
 export const ANONYMOUS_USER: Readonly<User> = Object.freeze({
-  id: undefined,
-  firstName: 'Anonymous',
-  lastName: '',
+    id: undefined,
+    firstName: 'Anonymous',
+    lastName: '',
 })
 
 export interface AuthPlugin {
-  readonly user: User
-  readonly isAuthenticated: boolean
-  readonly userFullName: string
-  readonly accessToken?: string
-  readonly login: () => Promise<void>
-  readonly logout: () => Promise<void>
+    readonly user: User
+    readonly isAuthenticated: boolean
+    readonly userFullName: string
+    readonly accessToken?: string
+    readonly login: () => Promise<void>
+    readonly logout: () => Promise<void>
 }
 
 export interface AuthAxiosConfig {
-  instance: AxiosInstance
-  autoAddAuthorizationHeader: boolean
-  authorizationHeaderPrefix?: string
+    instance: AxiosInstance
+    autoAddAuthorizationHeader: boolean
+    authorizationHeaderPrefix?: string
 }
 
 export interface RequiredAuthOptions {
-  router: Router
-  loginRouteName: RouteRecordName
-  loginRedirectRoute: RouteLocationRaw
-  logoutRedirectRoute: RouteLocationRaw
-  autoConfigureNavigationGuards: boolean
-  axios?: AuthAxiosConfig
+    router: Router
+    loginRouteName: RouteRecordName
+    loginRedirectRoute: RouteLocationRaw
+    logoutRedirectRoute: RouteLocationRaw
+    autoConfigureNavigationGuards: boolean
+    axios?: AuthAxiosConfig
 }
 
 /*
@@ -44,5 +44,5 @@ export interface RequiredAuthOptions {
  * See: https://stackoverflow.com/a/51507473/4873750
  */
 export interface AuthOptions extends Omit<Partial<RequiredAuthOptions>, 'router'> {
-  router: Router
+    router: Router
 }

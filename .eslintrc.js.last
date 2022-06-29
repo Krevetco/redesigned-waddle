@@ -1,0 +1,156 @@
+/* eslint-disable quote-props */
+// https://eslint.org/docs/user-guide/configuring
+module.exports = {
+    root: true,
+    parser: 'vue-eslint-parser',
+    parserOptions: {
+        sourceType: 'module',
+        parser: '@typescript-eslint/parser',
+        ecmaVersion: 13,
+    },
+    env: {
+        browser: true,
+        es2021: true,
+        node: true,
+        'vue/setup-compiler-macros': true,
+    },
+    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+    extends: [
+        'eslint:recommended',
+        'airbnb-base',
+        'plugin:vue/vue3-recommended',
+        'plugin:@typescript-eslint/recommended',
+        'prettier',
+    ],
+    // required to lint *.vue files
+    plugins: ['vue', '@typescript-eslint'],
+    // check if imports actually resolve
+    settings: {
+        'import/resolver': {
+            alias: [['@', './src']],
+            "node": {
+                "extensions": [".js", ".ts", ".tsx"],
+                moduleDirectory: ['node_modules', 'src/'],
+            },
+            "typescript": {},
+        },
+    },
+    // add your custom rules here
+    rules: {
+        // don't require .vue extension when importing
+        'import/extensions': [
+            'error',
+            'never',
+        ],
+        indent: [
+            'error',
+            4,
+            {
+                SwitchCase: 1,
+            },
+        ],
+        'max-len': [
+            'error',
+            {
+                code: 120,
+                tabWidth: 4,
+                ignoreComments: true,
+                ignoreUrls: true,
+                ignoreStrings: true,
+                ignoreTemplateLiterals: true,
+                ignoreRegExpLiterals: true,
+            },
+        ],
+        // allow debugger during development
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-restricted-syntax': 'off',
+        'no-console': 'off',
+        camelcase: 'warn',
+        curly: ['error', 'multi-or-nest', 'consistent'],
+        'arrow-parens': [2, 'as-needed', { requireForBlockBody: true }],
+        'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: true }],
+        'implicit-arrow-linebreak': 'off',
+        'comma-dangle': [2, 'always-multiline'],
+        'no-param-reassign': 'off',
+        'no-plusplus': 'off',
+        'no-shadow': 'off',
+        'no-prototype-builtins': 'off',
+        'no-continue': 'off',
+        'no-promise-executor-return': 'off',
+        'nonblock-statement-body-position': ['error', 'below'],
+        'quote-props': ['error', 'as-needed', { unnecessary: true }],
+        'func-names': ['warn', 'as-needed'],
+        'guard-for-in': 'off',
+        'prefer-destructuring': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'no-underscore-dangle': 'off',
+        'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
+        'vue/require-v-for-key': 'warn',
+        'vue/html-indent': [
+            'error',
+            4,
+            {
+                attribute: 1,
+                closeBracket: 0,
+                alignAttributesVertically: true,
+                ignores: [],
+            },
+        ],
+        'vue/max-attributes-per-line': [
+            2,
+            {
+                singleline: 1,
+                multiline: {
+                    max: 1,
+                },
+            },
+        ],
+        'vue/first-attribute-linebreak': [
+            'warn',
+            {
+                singleline: 'ignore',
+                multiline: 'beside',
+            },
+        ],
+        'vue/order-in-components': [
+            'error',
+            {
+                order: [
+                    'el',
+                    'name',
+                    ['template', 'render'],
+                    'parent',
+                    'functional',
+                    ['delimiters', 'comments'],
+                    'extends',
+                    'mixins',
+                    'inheritAttrs',
+                    'model',
+                    ['props', 'propsData'],
+                    'data',
+                    'computed',
+                    'methods',
+                    'LIFECYCLE_HOOKS',
+                    'watch',
+                    'renderError',
+                    ['components', 'directives', 'filters'],
+                ],
+            },
+        ],
+        'vue/multi-word-component-names': 'off',
+        'vue/singleline-html-element-content-newline': 'off',
+        'vue/multiline-html-element-content-newline': 'off',
+        'vue/html-closing-bracket-newline': ['error', { multiline: 'never' }],
+        'import/prefer-default-export': 'off',
+        'vue/no-multiple-template-root': 'off',
+        'no-return-assign': 'off',
+        'import/no-mutable-exports': 'off',
+        'import/no-unresolved': ['warn'],
+    },
+    globals: {
+        defineProps: 'readonly',
+        defineEmits: 'readonly',
+        withDefaults: 'readonly',
+    },
+}

@@ -33,14 +33,6 @@ Install Dependencies
 npm install
 ```
 
-Generate API client
-
-```
-npm run gen-api
-```
-
-> **NOTE:** This command requires a java `jvm` to be installed, if you want to avoid asking all developers to install it
-> check [OpenAPI Client Generator](#-openapi-client-generator) for more info.
 
 Start the development server
 
@@ -66,35 +58,38 @@ npm run serve
 
 ### 🚀 Vue 3 + Vite 2
 
-The version 3 of Vue with its powerful **Composition API** is available in this project.
+В этом проекте используется версия Vue3 с мощным **Composition API**.
 
-The new `<script setup>` SFCs syntax is also available and recommended.
-
-Vite is the lightning Fast Next Generation Frontend Tooling that highly improves the development experience along with
-all the community-created plugins.
-
-> **NOTE:** The initial state of this project was generated using Vite oficial scaffolding: `npm init vite@latest`
-
-See:
-
+Используется новый `<script setup>` SFCs синтаксис и рекомендуется пользоваться именно им.
+-   [Vue3 Setup](https://vuejs.org/api/composition-api-setup.html#basic-usage)
 -   [Vue 3 Docs](https://v3.vuejs.org)
 -   [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup)
 -   [Vite Docs](https://vitejs.dev/guide/features.html)
 
-### 🦾 TypeScript and SCSS
+### 🦾 TypeScript и SCSS
 
-TypeScript and SCSS languages are supported and strongly recommended.
+TypeScript - strongly recommended.
+SCSS - опциональная поддержка для тем и глобальных стилей. Остальное рекомендуется писать на TailwindCSS
 
 See:
 
 -   [TypeScript](https://www.typescriptlang.org/)
 -   [SCSS](https://sass-lang.com/)
 
+### UI Frameworks
+- [TailwindCSS](https://tailwindcss.com/)
+    - [TailwindCSS Typography](https://github.com/tailwindlabs/tailwindcss-typography)
+    - [TailwindCSS Forms](https://github.com/tailwindlabs/tailwindcss-forms)
+    - [TailwindCSS Aspect Ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+
+
+Рекомендуется установить плагин для IDE
+- VSCODE [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- JETBRAINS - поддерживает нативно
+
 ### 🗂 File system routing
 
-Routes for `vue-router` will be auto-generated from Vue files in the `src/pages` using the file structure.
-
-See:
+Routes для `vue-router`будут автоматически сгенерированны из VUE файлов `src/pages` по файловой структуре (аналогично файловому роутингу в NUXT).
 
 -   [vite-plugin-pages](https://github.com/hannoeru/vite-plugin-pages)
 

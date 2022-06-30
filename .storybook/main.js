@@ -1,5 +1,5 @@
 const { mergeConfig } = require('vite')
-const ElementPlus = require('unplugin-element-plus/vite');
+const ElementPlus = require('unplugin-element-plus/vite')
 
 module.exports = {
     stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -7,7 +7,7 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
-        '@socheatsok78/storybook-addon-vuetify',
+        // '@socheatsok78/storybook-addon-vuetify',
         {
             name: '@storybook/addon-postcss',
             options: {
@@ -38,15 +38,12 @@ module.exports = {
     },
     async viteFinal(config, { configType }) {
         return mergeConfig(config, {
-            plugins: [
-                ElementPlus(),
-            ],
+            plugins: [ElementPlus()],
             resolve: {
                 alias: {
                     '@/': `./scr/`,
                 },
             },
-
         })
     },
 }

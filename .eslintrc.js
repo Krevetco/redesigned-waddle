@@ -3,6 +3,7 @@ module.exports = {
         browser: true,
         es2021: true,
         node: true,
+        'jest/globals': true,
     },
     // Avoids the eslint: no-undef in "<script setup>" compiler macros
     globals: {
@@ -30,7 +31,7 @@ module.exports = {
      * this plugins is what allows to display a warn directly in the editor for related prettier rules
      * See: https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
      */
-    plugins: ['vue', '@typescript-eslint', 'prettier'],
+    plugins: ['vue', '@typescript-eslint', 'prettier', 'jest'],
     rules: {
         'prettier/prettier': ['warn'],
         'vue/multi-word-component-names': ['off'],

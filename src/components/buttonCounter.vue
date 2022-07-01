@@ -9,8 +9,8 @@
 
 <script setup lang="ts">
     import { Apple } from '@element-plus/icons-vue'
-    const props = defineProps({
+    defineProps({
         count: { type: Number, required: true },
-        clickEvent: { type: Function, default: () => {} },
+        clickEvent: { type: Function, default: () => ({}) },
     })
 </script>

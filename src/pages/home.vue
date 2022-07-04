@@ -6,7 +6,6 @@ meta:
 
 <script setup lang="ts">
     import { useStore } from '@/store'
-    import { ref } from 'vue'
     import { storeToRefs } from 'pinia'
 
     const store = useStore()
@@ -26,7 +25,7 @@ meta:
     <router-link :to="{ name: 'index' }"> To Index </router-link>
 
     <div>
-        <button class="btn btn-primary my-3" @click="testOpenAPI()">Test OpenAPI</button>
+        <a-button type="primary" @click="testOpenAPI()">Test OpenAPI</a-button>
         <h5>Result:</h5>
         <pre>
             {{ importData }}

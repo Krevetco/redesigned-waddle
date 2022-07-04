@@ -25,7 +25,7 @@ meta:
     <br />
     <router-link :to="{ name: 'testMouse' }"> To Test </router-link>
 
-    <p class="mb-0 mt-4">[Default Layout]</p>
+    <p class="mb-0 mt-4px">[Default Layout]</p>
     <p>
         <span v-if="auth.isAuthenticated">
             <b class="me-2">{{ auth.user.email }}</b>

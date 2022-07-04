@@ -7,7 +7,7 @@
         <strong>PROJECT NAME</strong>
         <div class="user">
             <i-mdi-account /> Hello {{ $auth.userFullName }}!&nbsp;
-            <button class="btn btn-secondary btn-sm ms-2" @click="$auth.logout">Logout</button>
+            <a-button type="primary" class="ml-2" @click="$auth.logout">Logout</a-button>
         </div>
     </nav>
 

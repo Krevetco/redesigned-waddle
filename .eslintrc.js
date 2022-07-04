@@ -26,6 +26,7 @@ module.exports = {
         parser: '@typescript-eslint/parser',
         sourceType: 'module',
     },
+
     /**
      * The "prettier" plugin comes from 'eslint-plugin-prettier' which integrates prettier rules into eslint rules,
      * this plugins is what allows to display a warn directly in the editor for related prettier rules
@@ -36,7 +37,6 @@ module.exports = {
         'prettier/prettier': ['warn'],
         'vue/multi-word-component-names': ['off'],
         'nonblock-statement-body-position': ['off'],
-        '@typescript-eslint/no-empty-function': 'warn',
-        // 'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
+        '@typescript-eslint/no-empty-function': 'warn', // 'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
     },
 }

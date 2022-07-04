@@ -1,34 +1,40 @@
 <script setup lang="ts">
     import { useStore } from '@/store'
     import { storeToRefs } from 'pinia'
-    import { Delete, Edit, Share } from '@element-plus/icons-vue'
+    import { VerticalAlignTopOutlined, DeleteOutlined } from '@ant-design/icons-vue'
 
-    const props = defineProps<{ title: string; msg: string; likes?: number }>()
+    defineProps<{ title: string; msg: string; likes?: number }>()
     const store = useStore()
 
     const { count, importData } = storeToRefs(store)
 </script>
 
 <template>
-    <img alt="Vue logo" src="@/assets/logo.png" class="h-200 mx-auto" />
+    <img alt="Vue logo" src="@/assets/logo.png" class="h-200px mx-auto" />
 
     <h1>{{ title }}</h1>
     <p>{{ msg }}</p>
 
     <p>
-        <a href="https://helixsoft.com.co" target="_blank">Helix Software</a>
+        <a href="https://wall.black/" target="_blank">Wall Black</a>
         |
-        <a href="https://www.instagram.com/helixsoft/" target="_blank">@helixsoft</a>
+        <a href="https://www.instagram.com/WallBlack/" target="_blank">@WallBlack</a>
     </p>
 
     <p>
         <button-counter :count="count" :click-event="store.increaseCount" />
     </p>
-    <el-button-group class="mt-4">
-        <button-wrapper :icon="Edit" :click-event="store.getTodos">getAxios</button-wrapper>
-        <button-wrapper type="primary" :icon="Share" />
-        <button-wrapper type="primary" :icon="Delete" :click-event="store.deleteTodos">deleteData</button-wrapper>
-    </el-button-group>
+    <p class="mt-4">Get Todos data once and write it in a store</p>
+    <div class="my-1">
+        <button-wrapper :click-event="store.getTodos">
+            <template #icon><VerticalAlignTopOutlined /></template>
+            getAxios
+        </button-wrapper>
+        <button-wrapper type="primary" class="ml-4" :click-event="store.deleteTodos">
+            <template #icon><DeleteOutlined /></template>
+            deleteData
+        </button-wrapper>
+    </div>
     <p>{{ importData }}</p>
 </template>
 

@@ -1,12 +1,12 @@
 <template>
-    <el-button type="primary" :icon="icon" @click="clickEvent">
+    <a-button type="primary" @click="clickEvent">
+        <template #icon><slot name="icon" /></template>
         <slot />
-    </el-button>
+    </a-button>
 </template>
 
 <script setup lang="ts">
-    const props = defineProps({
-        icon: { type: Object, required: true },
+    defineProps({
         clickEvent: { type: Function, default: () => {} },
     })
 </script>

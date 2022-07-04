@@ -17,7 +17,7 @@ export const useStore = defineStore('store', {
             if (this.importData) return this.importData
             else
                 return axios
-                    .get('https://jsonplaceholder.typicode.com/todos/' + Math.round(Math.random() * 10))
+                    .get('https://jsonplaceholder.typicode.com/todos/' + Math.round(Math.random() * 10 + 1))
                     .then(({ data }) => {
                         return (this.importData = data)
                     })

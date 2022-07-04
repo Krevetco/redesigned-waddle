@@ -6,8 +6,9 @@ import Layouts from 'vite-plugin-vue-layouts'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import eslintPlugin from 'vite-plugin-eslint'
-import ElementPlus from 'unplugin-element-plus/vite'
+import WindiCSS from 'vite-plugin-windicss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,14 +17,14 @@ export default defineConfig({
         Pages(),
         Layouts(),
         eslintPlugin(),
-        ElementPlus(),
+        WindiCSS(),
         // This plugin allows to autoimport vue components
         Components({
             /**
              * The icons resolver finds icons components from 'unplugin-icons' using this convenction:
              * {prefix}-{collection}-{icon} e.g. <i-mdi-thumb-up />
              */
-            resolvers: [IconsResolver()],
+            resolvers: [AntDesignVueResolver(), IconsResolver()],
         }),
         /**
          * This plugin allows to use all icons from Iconify as vue components

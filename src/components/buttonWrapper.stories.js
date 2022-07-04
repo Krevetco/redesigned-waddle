@@ -1,8 +1,7 @@
 // YourComponent.stories.js
 
 import buttonWrapper from './buttonWrapper.vue'
-import { Delete, Edit, Share } from '@element-plus/icons-vue'
-const icons = { Delete, Edit, Share }
+const icons = [1, 2, 3]
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -44,7 +43,6 @@ export const Primary = Template.bind({})
 
 Primary.args = {
     /* 👇 The args you need here will depend on your component */
-    icon: Edit,
     default: `Пример кнопки`,
 }
 Primary.parameters = {}

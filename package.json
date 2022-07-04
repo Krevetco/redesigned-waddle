@@ -28,6 +28,7 @@
         }
     },
     "dependencies": {
+        "@ant-design/icons-vue": "^6.1.0",
         "@element-plus/icons-vue": "^2.0.6",
         "@socheatsok78/storybook-addon-vuetify": "^0.1.9",
         "@tailwindcss/aspect-ratio": "^0.4.0",
@@ -36,6 +37,7 @@
         "@vue/compiler-sfc": "^3.2.37",
         "@vueuse/components": "^8.7.5",
         "@vueuse/core": "^8.7.5",
+        "ant-design-vue": "^3.2.9",
         "axios": "^0.24.0",
         "cypress": "^10.3.0",
         "element-plus": "^2.2.6",
@@ -83,6 +85,7 @@
         "eslint-plugin-prettier": "^4.1.0",
         "eslint-plugin-promise": "^6.0.0",
         "eslint-plugin-sonarjs": "^0.13.0",
+        "eslint-plugin-storybook": "^0.5.13",
         "eslint-plugin-vue": "^8.1.1",
         "jest": "^28.1.2",
         "jest-environment-jsdom": "^28.1.2",
@@ -97,8 +100,10 @@
         "vite": "^2.6.4",
         "vite-plugin-pages": "^0.19.0-beta.3",
         "vite-plugin-vue-layouts": "^0.5.0",
+        "vite-plugin-windicss": "^1.8.6",
         "vue-eslint-parser": "^8.0.1",
         "vue-loader": "^16.8.3",
-        "vue-tsc": "^0.3.0"
+        "vue-tsc": "^0.3.0",
+        "windicss": "^3.5.6"
     }
 }

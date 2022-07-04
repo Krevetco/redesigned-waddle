@@ -77,15 +77,13 @@ See:
 -   [SCSS](https://sass-lang.com/)
 
 ### UI Frameworks
-- [TailwindCSS](https://tailwindcss.com/)
-    - [TailwindCSS Typography](https://github.com/tailwindlabs/tailwindcss-typography)
-    - [TailwindCSS Forms](https://github.com/tailwindlabs/tailwindcss-forms)
-    - [TailwindCSS Aspect Ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
-
+Иипользуется [WindiCSS](https://windicss.org/features/dark-mode.html)  - фреймворк подобный [TailwindCSS](https://tailwindcss.com/), но быстрее и с большим функционалом (переменные, h-5px подобные классы)
 
 Рекомендуется установить плагин для IDE
-- VSCODE [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-- JETBRAINS - поддерживает нативно
+- VSCODE [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - плагин поддержки TailWIND 
+- VSCODE (рекомендуется, поддерживает tailwind|windi) [Windi CSS Intellisense for VS Code](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense)
+[статья по установке и настройке](https://windicss.org/editors/vscode.html)
+- JETBRAINS - поддерживает нативно Tailwind, но фичи из WindiCSS не поддерживается (смотреть в документацию, их там не критично много)
 
 ### 🗂 File system routing
 

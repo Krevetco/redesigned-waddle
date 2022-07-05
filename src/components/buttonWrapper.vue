@@ -7,6 +7,6 @@
 
 <script setup lang="ts">
     defineProps({
-        clickEvent: { type: Function, default: () => {} },
+        clickEvent: { type: Function, default: () => ({}) },
     })
 </script>

@@ -3,6 +3,7 @@ import { setupDevtools } from './devtools'
 import { configureAuthorizationHeaderInterceptor } from './interceptors'
 import { configureNavigationGuards } from './navigationGuards'
 import { ANONYMOUS_USER, AuthOptions, AuthPlugin, RequiredAuthOptions, User } from './types'
+import axios from 'axios'
 
 export let authInstance: AuthPlugin | undefined
 
@@ -72,6 +73,7 @@ export function createAuth(appOptions: AuthOptions) {
         install: (app: App): void => {
             authInstance = setupAuthPlugin(options)
             app.config.globalProperties.$auth = authInstance
+            app.config.globalProperties.$axios = axios
 
             if (options.autoConfigureNavigationGuards) configureNavigationGuards(options.router, options)
 

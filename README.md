@@ -80,8 +80,10 @@ See:
 - VSCODE [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - плагин поддержки TailWIND 
 - VSCODE (рекомендуется, поддерживает tailwind|windi) [Windi CSS Intellisense for VS Code](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense)
 [статья по установке и настройке](https://windicss.org/editors/vscode.html)
-- JETBRAINS - поддерживает нативно Tailwind, но фичи из WindiCSS не поддерживается (смотреть в документацию, их там не критично много)
-- Неофциальный плагин JETBRAINS  [Tailwind Intellisense](https://plugins.jetbrains.com/plugin/15260-tailwind-intellisense)
+- JETBRAINS [Tailwind CSS](https://plugins.jetbrains.com/plugin/15321-tailwind-css) плагин предоставляет среднюю поддержку, но фичи из WindiCSS не поддерживается (смотреть в документацию, их там не критично много)
+- Неофциальный плагин JETBRAINS  [Tailwind Intellisense](https://plugins.jetbrains.com/plugin/15260-tailwind-intellisense) - неофицильный, подходит не для всех версий IDE 
+
+- Сервис для перевода [CSS to HTML](https://transform.tools/css-to-tailwind) 
 
 Благодаря тому что мы используем WindiCSS, в dev версии подключаются все стили, и можно менять стили DOM элементов меняя их класс на другой. Например: `class="h-100px"` поменяли на `class="h-200px"` прямо в инструментах разработчика
 
@@ -147,7 +149,21 @@ meta:
 
 See:
 
--   [RouterViewTransition.vue](./src/components/RouterViewTransition.vue)
+- [RouterViewTransition.vue](./src/components/RouterViewTransition.vue)
+
+### Meta Information (title and description)
+
+Для изменения метаданных страницы в хуке `router.beforeEach()` в `navigationGuards.ts` из метаданных роута подтягиваются tiele и description
+
+```vue
+<route lang="yaml">
+meta:
+    title: default title
+    description: default description
+</route>
+```
+
+Чтобы подтягивались другие метаданные, нужно добавить методы в хуке `router.beforeEach()`
 
 ### 🪄 Eslint + Prettier
 
@@ -184,8 +200,8 @@ See:
 
 #### The Auth Plugin
 
-The plugin is installed in Vue's `globalProperties` with the name `$auth`, it includes an `isAuthenticated` property,
-an `user` object, an `accessToken` plus the `login` and `logout` functions. It can be used in templates like this:
+Плагин устанавливается в `globalProperties` Vue с именем `$auth`, он включает свойство `isAuthenticated`,
+объект `user`, `accessToken` плюс функции `login` и `logout`. Его можно использовать в таких шаблонах:
 
 ```html
 <span v-if="$auth.isAuthenticated">
@@ -195,8 +211,8 @@ an `user` object, an `accessToken` plus the `login` and `logout` functions. It c
 <span v-else>Not Authenticated</span>
 ```
 
-The `auth` instance is created using the composition API, therefore we can alternatively retrieve it outside of
-components with the `useAuth` function:
+Экземпляр auth создается с использованием composition API, поэтому мы можем альтернативно получить его вне
+компоненты с функцией `useAuth`:
 
 ```ts
 import { useAuth } from './useAuth'
@@ -219,16 +235,16 @@ if (auth.isAuthenticated) {
 </script>
 ```
 
-Aditionally, the auth plugin can be inspected in the **Vue's Devtools panel** when having the extension in the browser.
-The plugin's values are displayed when inspecting any component.
+Кроме того, плагин аутентификации можно проверить на **панели инструментов разработки Vue** при наличии расширения в браузере.
+Значения плагина отображаются при проверке любого компонента.
 
 #### The Navigation Guards
 
-The navigation guards protects pages from non-authenticated users and redirect them to the login page,
-by default **all** pages but the `login` page are protected.
+Защита навигации защищает страницы от неавторизованных пользователей и перенаправляет их на страницу входа,
+по умолчанию защищены **все** страницы, кроме страницы входа.
 
-In order to make a page available for non-authenticated users, a route meta boolean called `public` needs to be
-configured in the page. E.g:
+Чтобы сделать страницу доступной для неаутентифицированных пользователей, необходимо указать meta boolean `public`
+настраивается на странице. Например:
 
 ```vue
 <!-- pages/index.html -->
@@ -238,8 +254,7 @@ meta:
 </route>
 ```
 
-The navigation guards can be disabled by changing the `autoConfigureNavigationGuards` when configuring the auth system:
-
+The navigation guards можно отключить, изменив `autoConfigureNavigationGuards` при настройке системы аутентификации:
 ```ts
 // main.js
 import { createApp } from 'vue'
@@ -260,11 +275,11 @@ app.use(auth)
 
 #### The Axios Interceptors
 
-The axios interceptors helps appending auth information to requests and responses of APIs.
+The axios interceptors помогают добавлять информацию аутентификации к запросам и ответам API.
 
-The main interceptor adds the `Authorization` header with a value of `Bearer the-token-value` to all authenticated requests.
+Основной перехватчик добавляет заголовок «Authorization» со значением «Bearer the-token-value» ко всем аутентифицированным запросам.
 
-This can be configured and disabled in the `createAuth` options:
+Это можно настроить и отключить в параметрах `createAuth`:
 
 ```ts
 // api/axios.ts
@@ -303,147 +318,6 @@ See:
 -   [Axios - Interceptors](https://github.com/axios/axios#interceptors)
 -   [Vue Devtools - Plugin Registration](https://devtools.vuejs.org/plugin/plugins-guide.html#registering-your-plugin)
 
-### 🌐 Internationalization: vue-i18n and vue-i18n-extract
-
-The `vue-i18n` package is used as the internationalization system.
-
-All translation files located in the `locales` dir are loaded automatically with the corresponding language code obtained from the file name, e.g. `locales/es.json` -> lang code: `es`.
-
-**How to use it?**
-
-Put the texts in the original language inside the function of vue-i18n, for example:
-
-```html
-<!-- Single or double quote, and template literals -->
-<p>{{ $t('Hello World') }} {{ $t("Hello, how are you?") }} {{ $t(`Hey. I'm watching you!`) }}</p>
-
-<!-- *Note: to be able to use it in tags or when we send text to a component, we must use the single quote format
-and bind it to the attribute. -->
-
-<MyComponent :text="$t('example text')" />
-
-<b-form-input v-model="name" type="text" :placeholder="$t('Name')"></b-form-input>
-
-// In TS:
-<script setup lang="ts">
-    import { useI18n } from 'vue-i18n'
-
-    const { t } = useI18n()
-    t('This is an example')
-</script>
-```
-
-You may have noticed that we don't use translations keys like: `greetings.hello`, the reason is that defining keys is a troublesome task, and keys doesn't always show what we want to display, take this translation file for example:
-
-```js
-// es.json
-
-{
-  "greetings": {
-    "hello": "Hola, ¿cómo estás?."
-  }
-}
-```
-
-And the corresponding translation usage:
-
-```js
-// Component.vue
-
-t('greetings.hello')
-```
-
-By just looking at the translation key, we won't know what the original text was, now look a this example:
-
-```js
-// es.json
-
-{
-  "Hello, how are you?": "Hola, ¿cómo estás?."
-}
-```
-
-```js
-// Component.vue
-
-$t('Hello, how are you?')
-```
-
-Better right?, we can directly see the original text, and it's much simpler to translate, we also won't need to define keys because **the original text is the key!**.
-
-**Browser language detection**
-
-The default language would match the language of the browser,
-in case the language is not supported by the application, the fallback language `en` would be activated.
-
-**Vue i18n extract**
-
-Manually extracting the texts from vue or js,ts files is a complex task, we are often lazy to do so or we forget to add them, therefore we lose the sync between the translations files and the source code, that's why we use `vue-i18n-extract`, a handy tool that runs static analysis of the source code files and extracts the translation texts from the source code and add them to the translations files like `es.json`, `en.json`, `de.json`, etc. It no only adds the missing keys but also with a command we can remove the no longer used translations.
-
-To extract the keys/original text into the translations files, run:
-
-```
-npm run vue-i18n-extract
-```
-
-This executes the command located in `package.json`, which will search for the keys in the vue files given, compare it with the files inside the lang folder and if it finds new words, it will add them.
-
-This script uses the [vue-i18n-extract.config.js](./vue-i18n-extract.config.js) file for its configuration. This file is located in the root of the project.
-
-**Adding a new language:**
-
-To add a new language, for instance the German language, just create its file inside the `locales` folder using its language code, example: `./locales/de.json`. Then run `npm run vue-i18n-extract` to populate the translation keys into that file.
-
-> _IMPORTANT_: When creating the file, make it a valid JSON file, then at least it must has `{}`, otherwise the extraction would fail.
-
-Example:
-
-```js
-// locales/es.json
-
-{
-}
-```
-
-The file would be loaded automatically by `vite`, a vite restart may be needed.
-
-**Removing unused translations**
-
-In case you want to remove the keys that are in the translation files but are not being used in the vue files, you can run:
-
-```
-npm run vue-i18n-extract-remove
-```
-
-See:
-
--   [Vue i18n](https://vue-i18n.intlify.dev/)
--   [Vue i18n extract](https://github.com/pixari/vue-i18n-extract)
--   [i18n plugin](./src/plugins/i18n.ts)
-
 ## Recommended IDE Setup
 
--   [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-
-## Deployment
-
-### Heroku
-
-In Heroku create the app, then configure the following buildpacks in the same order:
-
--   heroku/jvm
--   heroku/nodejs
--   heroku-community/static
-
-Config the Heroku remote:
-
-```
-heroku login
-heroku git:remote -a <app_name>
-```
-
-Finally, push the changes:
-
-```
-git push heroku main
-```
+- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)

@@ -1,6 +1,6 @@
-# Vuelix
+# galaxy
 
-Vuelix is a Vue 3 + Vite starter template to scaffold new projects really fast and with a great developer experience.
+Galaxy VUE + VITE template
 
 ## Table of contents
 
@@ -27,28 +27,25 @@ Vuelix is a Vue 3 + Vite starter template to scaffold new projects really fast a
 
 ## Setup
 
-Install Dependencies
-
+Установить зависимости
 ```
 npm install
 ```
 
 
-Start the development server
-
+Запустите сервер разработки
 ```
 npm run dev
 ```
 
 ## Build
 
-To build the app, run
-
+Чтобы собрать приложение, запустите
 ```
 npm run build
 ```
 
-And to preview it, after building the app run
+И для предварительного просмотра после создания приложения запустите
 
 ```
 npm run serve
@@ -84,6 +81,9 @@ See:
 - VSCODE (рекомендуется, поддерживает tailwind|windi) [Windi CSS Intellisense for VS Code](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense)
 [статья по установке и настройке](https://windicss.org/editors/vscode.html)
 - JETBRAINS - поддерживает нативно Tailwind, но фичи из WindiCSS не поддерживается (смотреть в документацию, их там не критично много)
+- Неофциальный плагин JETBRAINS  [Tailwind Intellisense](https://plugins.jetbrains.com/plugin/15260-tailwind-intellisense)
+
+Благодаря тому что мы используем WindiCSS, в dev версии подключаются все стили, и можно менять стили DOM элементов меняя их класс на другой. Например: `class="h-100px"` поменяли на `class="h-200px"` прямо в инструментах разработчика
 
 ### 🗂 File system routing
 
@@ -93,10 +93,10 @@ Routes для `vue-router`будут автоматически сгенерир
 
 ### 📑 Layouts system
 
-Vue components in the `src/layouts` dir are used as layouts.
-By default, `default.vue` will be used unless an alternative is specified in the route meta.
+Компоненты Vue в каталоге `src/layouts` используются в качестве layout.
+По умолчанию будет использоваться `default.vue`, если в метаданных маршрута не указана альтернатива.
 
-You can specify the layout in the page's SFCs like this:
+Вы можете указать layout в SFC страницы следующим образом:
 
 ```vue
 <route lang="yaml">
@@ -112,58 +112,26 @@ See:
 
 ### 🔗 Path Aliasing
 
-`@/` is aliased to the `./src/` folder.
+`@/` имеет псевдоним папки `./src/`.
 
-For example, instead of having
+Например, вместо того, чтобы использовать
 
 ```ts
 import HelloWorld from '../../../components/HelloWorld.vue'
 ```
 
-you can use
+мы используем путь абсолютный от `./src/`
 
 ```ts
 import HelloWorld from '@/components/HelloWorld.vue'
 ```
 
-### 😃 Universal Icons Framework
-
-Use icons from any icon set, one syntax for all icons: Material Design Icons, Bootstrap Icons, Font Awesome, etc.
-All icons libraries are available powered by [iconify](https://iconify.design/) and [unplugin-icons](https://github.com/antfu/unplugin-icons). And don't worry, **only** the icons you use would be included in the final bundle,
-keeping the production build lightweight.
-
-The usage is simple, if you want for instance a Material Design Icon (mdi) with name "thumb-up",
-then just place this inside your template:
-
-```html
-<i-mdi-thumb-up />
-```
-
-Just by placing it, the `unplugin-icons/resolver` would look for the corresponding icon and in case the related
-iconify icon set is not installed, it would automatically install it using `npm`, e.g. `@iconify-json/mdi`.
-
-The convention to use icons is as follows:
-
-```
-{prefix}-{collection}-{icon}
-```
-
-Where the `prefix` is "i", the `collection` is the collection ID from https://icon-sets.iconify.design/,
-and finally the `icon` is the icon name.
-
-See:
-
--   [unplugin-icons](https://github.com/antfu/unplugin-icons)
--   [iconify](https://iconify.design/)
--   [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
--   [Icônes - to search for icons available in iconify](https://icones.js.org/)
-
 ### ✨ Routes Transitions
 
-Route changes are animated. By default, the `fade` transition will be used unless an alternative is specified in the route meta.
+Изменения маршрута анимированы. По умолчанию будет использоваться переход `fade`, если в метаданных маршрута не указана альтернатива.
 
-The `fade` and `slide-fade` transitions are available.
-You can specify the transition in the page's SFCs like this:
+Доступны переходы `fade` и `slide-fade`.
+Вы можете указать переход в SFC страницы следующим образом:
 
 ```vue
 <route lang="yaml">
@@ -172,8 +140,9 @@ meta:
 </route>
 ```
 
-> _NOTE:_ Transitions are not triggered between routes of the same type, therefore changing the parameters of the active route won't cause a route transition. This could be changed by using the `route.fullPath` instead of `route.name` as the key in [RouterViewTransition.vue](./src/components/RouterViewTransition.vue). More info: https://stackoverflow.com/a/70042452/4873750.
-
+> _ПРИМЕЧАНИЕ._ Переходы не запускаются между маршрутами одного типа, 
+> поэтому изменение параметров активного маршрута не приведет к переходу маршрута. 
+> Это можно изменить, используя `route.fullPath` вместо `route.name` в качестве ключа в [RouterViewTransition.vue](./src/components/RouterViewTransition.vue). More info: https://stackoverflow.com/a/70042452/4873750.
 > Route transitions can be deactivated by changing the provided `enable-route-transitions` value in [main.js](./src/main.ts).
 
 See:
@@ -182,98 +151,33 @@ See:
 
 ### 🪄 Eslint + Prettier
 
-This project comes with the recommended Eslint configuration for Vue 3 plus integration with Prettier.
-Prettier helps formatting code while Eslint helps catching bugs in development.
+Этот проект поставляется с рекомендуемой конфигурацией Eslint для Vue 3, а также с интеграцией с Prettier.
+Prettier помогает форматировать код, а Eslint помогает отлавливать ошибки в разработке.
 
-When opening the project in VSCode, it will ask the developers to install Eslint and Prettier, because that way
-the VSCode [settings.json](.vscode/settings.json) will work and therefore both Prettier and Eslint fix will be
-executed when saving a file.
+При открытии проекта в VSCode он попросит разработчиков установить Eslint и Prettier, т.к.
+VSCode [settings.json](.vscode/settings.json) будет работать, поэтому исправление Prettier и Eslint будет
+выполняется при сохранении файла.
 
-Aditionally, commands to lint, check and autoformat code are available in the scripts of [package.json](./package.json)
-
-See:
-
--   [Eslint](https://eslint.org/)
--   [Prettier](https://prettier.io/docs/en/comparison.html)
--   [eslint-plugin-vue](https://eslint.vuejs.org/)
--   [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
--   [vue-eslint-parser](https://github.com/vuejs/vue-eslint-parser)
-
-### 🔧 OpenAPI Client Generator
-
-Manually creating an API client is hard to maintain and time demanding,
-but thanks to OpenAPI and its generators we can now generate the entire API client from an `OpenAPI Spec`.
-
-To do so just place your spec in `spec/schema.yml`, then run:
-
-```
-npm run gen-api
-```
-
-Which would generate the API client in Typescript and place the generated code in `src/api-client`.
-
-> **NOTE:** This command requires `java` to be installed, because the OpenAPI generator is built with it, if you
-> want to avoid asking all developers to install a `jvm` and run this command by themselves, just run it once you change
-> the OpenAPI spec, and commit the generated code, for that you need to remove the `/src/api-client` line from the `.gitignore`.
-> The reason we exclude the generated client by default if because it can always be generated from the spec (`spec/schema.yml`), and because
-> the spec file is actually versioned, then the code reviewing is improved by checking only spec changes and not the generated code that nobody wrotes.
-
-> **INFO:** If you have a Mac with an M1 Chip, this page have the correct `OpenJDK` installers for you: https://www.azul.com/downloads/?os=macos&architecture=arm-64-bit
-
-To use the generated APIs just initialize them and make it available for the rest of the application.
-The following is an example using Swagger Demo PetStore API:
-
-```ts
-// "api/index.ts"
-import { PetApi } from '@/api-client'
-export const petApi = new PetApi()
-```
-
-You can also configure the APIs parameters like `basePath` and provide your own `axios` instance with interceptors configured like this:
-
-```ts
-// "api/index.ts"
-import { PetApi } from '@/api-client'
-import { Configuration } from '@/api-client/configuration'
-import axiosInstance from './axios'
-
-// See Vite env vars: https://vitejs.dev/guide/env-and-mode.html
-const config = new Configuration({ basePath: import.meta.env.BASE_URL })
-export const petApi = new PetApi(config, undefined, axiosInstance)
-```
-
-Then in your Vue Components:
-
-```html
-<!-- "pages/home.vue" -->
-<script setup lang="ts">
-    import { petApi } from '@/api'
-    import { Pet, PetStatusEnum } from '@/api-client'
-    import { ref } from 'vue'
-
-    const pets = ref<Pet[]>()
-    const loading = ref(false)
-
-    async function testOpenAPI() {
-        loading.value = true
-        const { data } = await petApi.findPetsByStatus({ status: [PetStatusEnum.Available] })
-        pets.value = data.slice(0, 10)
-        loading.value = false
-    }
-</script>
-```
+Кроме того, в скриптах [package.json](./package.json) доступны команды для линтинга, проверки и автоформатирования кода.
 
 See:
 
--   [OpenAPI Specification](https://swagger.io/docs/specification/about/)
--   [OpenAPI Generator](https://openapi-generator.tech/)
--   [OpenAPI Generator CLI](https://github.com/openapitools/openapi-generator-cli)
--   [OpenAPI typescript-axios generator](https://openapi-generator.tech/docs/generators/typescript-axios)
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/docs/en/comparison.html)
+- [eslint-plugin-vue](https://eslint.vuejs.org/)
+- [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+- [vue-eslint-parser](https://github.com/vuejs/vue-eslint-parser)
+
+### Pre-commit
+
+В проекте настроен хук pre-commit, который запускает bash скрипт на проверку проекта через Eslint. Перед каждым коммитом. 
+Для корректной работы, hook pre-commit настроен как через хук `.husky/pre-commit`, так и через стандартные хуки по `.git/hooks/pre-commit`
+Данная когнифигруеция позволяет перехватывать коммит как при использовании терминала, так и при коммитах через GitKraken
+
 
 ### 👤 Authentication System
 
-The auth system consist on three main parts:
-
+Система авторизации состоит из трех основных частей:
 -   The Plugin
 -   The Navigation Guards
 -   The Axios Interceptors

@@ -5,9 +5,11 @@ import { createAuth } from '@/auth'
 import App from '@/App.vue'
 import router from '@/router'
 import axiosInstance from '@/api/axios'
+import axios from 'axios'
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 import 'virtual:windi.css'
+import 'virtual:windi-devtools'
 
 const auth = createAuth({
     router,
@@ -28,3 +30,4 @@ app.provide('enable-route-transitions', true)
 app.mount('#app')
 app.use(Antd)
 app.use(pinia)
+app.config.globalProperties.$axios = axios

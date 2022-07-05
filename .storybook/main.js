@@ -1,5 +1,9 @@
 const { mergeConfig } = require('vite')
-const ElementPlus = require('unplugin-element-plus/vite')
+const WindiCSS = require('vite-plugin-windicss').default
+const path = require('path')
+const Components = require('unplugin-vue-components/vite')
+const { AntDesignVueResolver } = require('unplugin-vue-components/resolvers')
+const IconsResolver = require('unplugin-icons/resolver')
 
 module.exports = {
     stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -7,7 +11,6 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
-        // '@socheatsok78/storybook-addon-vuetify',
         {
             name: '@storybook/addon-postcss',
             options: {
@@ -38,7 +41,14 @@ module.exports = {
     },
     async viteFinal(config, { configType }) {
         return mergeConfig(config, {
-            plugins: [ElementPlus()],
+            plugins: [
+                WindiCSS({
+                    config: path.join(__dirname, '..', 'tailwind.config.ts'), // that was my missing piece
+                }),
+                Components({
+                    resolvers: [AntDesignVueResolver(), IconsResolver()],
+                }),
+            ],
             resolve: {
                 alias: {
                     '@/': `./scr/`,

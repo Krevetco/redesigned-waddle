@@ -4,6 +4,7 @@ const path = require('path')
 const Components = require('unplugin-vue-components/vite')
 const { AntDesignVueResolver } = require('unplugin-vue-components/resolvers')
 const IconsResolver = require('unplugin-icons/resolver')
+const Icons = require('unplugin-icons/vite')
 
 module.exports = {
     stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -42,6 +43,10 @@ module.exports = {
                 }),
                 Components({
                     resolvers: [AntDesignVueResolver(), IconsResolver()],
+                }),
+                Icons({
+                    // This setting will autoinstall the iconify iconset when it's used in the code, e.g, @iconify-json/mdi or @iconify-json/fe
+                    autoInstall: true,
                 }),
             ],
             resolve: {

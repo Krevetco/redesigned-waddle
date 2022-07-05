@@ -1,8 +1,7 @@
 // YourComponent.stories.js
 
 import buttonWrapper from './buttonWrapper.vue'
-const icons = [1, 2, 3]
-
+import { VerticalAlignTopOutlined, DeleteOutlined } from '@ant-design/icons-vue'
 //👇 This default export determines where your story goes in the story list
 export default {
     /* 👇 The title prop is optional.
@@ -11,22 +10,6 @@ export default {
      */
     title: 'buttonWrapper',
     component: buttonWrapper,
-    argTypes: {
-        // foo is the property we want to remove from the UI
-        icon: {
-            options: Object.keys(icons), // An array of serializable values
-            mapping: icons, // Maps serializable option values to complex arg values
-            control: {
-                type: 'select', // Type 'select' is automatically inferred when 'options' is defined
-                labels: {
-                    // 'labels' maps option values to string labels
-                    Delete: 'Delete',
-                    Edit: 'Edit',
-                    Share: 'Share',
-                },
-            },
-        },
-    },
 }
 
 //👇 We create a “template” of how args map to rendering
@@ -36,7 +19,9 @@ const Template = (args) => ({
         //👇 The args will now be passed down to the template
         return { args }
     },
-    template: `<buttonWrapper v-bind="args">${args.default}</buttonWrapper>`,
+    template: `<buttonWrapper v-bind="args">
+        ${args.default}
+    </buttonWrapper>`,
 })
 
 export const Primary = Template.bind({})

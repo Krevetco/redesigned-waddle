@@ -1,4 +1,5 @@
 import buttonCounter from './buttonCounter.vue'
+import { ref } from 'vue'
 //👇 This default export determines where your story goes in the story list
 export default {
     /* 👇 The title prop is optional.
@@ -7,9 +8,11 @@ export default {
      */
     title: 'buttonCounter',
     component: buttonCounter,
+    argTypes: { count: { control: null } },
 }
 
 //👇 We create a “template” of how args map to rendering
+let count = ref(0)
 const Template = (args) => ({
     components: { buttonCounter },
     setup() {
@@ -17,7 +20,10 @@ const Template = (args) => ({
         return {
             args: {
                 ...args,
-                clickEvent: () => {},
+                count: count,
+                clickEvent: () => {
+                    count.value++
+                },
             },
         }
     },
@@ -28,5 +34,7 @@ export const Primary = Template.bind({})
 
 Primary.args = {
     /* 👇 The args you need here will depend on your component */
-    count: 1,
+}
+Primary.parameters = {
+    controls: { hideNoControlsWarning: true },
 }

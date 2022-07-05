@@ -11,5 +11,7 @@ declare module 'vue-router' {
         layout?: string
         transition?: string
         public?: boolean
+        title?: string
+        description?: string
     }
 }

@@ -1,6 +1,8 @@
 <route lang="yaml">
 meta:
     public: true
+    title: hello
+    description: default
 </route>
 
 <script setup lang="ts">

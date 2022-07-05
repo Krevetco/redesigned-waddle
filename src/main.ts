@@ -23,11 +23,7 @@ const auth = createAuth({
 })
 const pinia = createPinia()
 
-const app = createApp(App)
-app.use(router)
-app.use(auth)
+const app = createApp(App).use(router).use(auth).use(Antd).use(pinia)
 app.provide('enable-route-transitions', true)
 app.mount('#app')
-app.use(Antd)
-app.use(pinia)
 app.config.globalProperties.$axios = axios

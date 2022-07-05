@@ -1,11 +1,6 @@
 import '../src/assets/scss/app.scss'
-// import { withVuetify } from '@socheatsok78/storybook-addon-vuetify/dist/decorators'
-// import 'element-plus/theme-chalk/src/message.scss'
-// import 'element-plus/es/components/message/style/css'
-// import 'element-plus/dist/index.css'
-// import ElementPlus from 'element-plus'
-// import { app } from '@storybook/vue3'
-// app.use(ElementPlus, {})
+import 'virtual:windi.css'
+import 'virtual:windi-devtools'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -16,6 +11,3 @@ export const parameters = {
         },
     },
 }
-export const decorators = [
-    // withVuetify
-]

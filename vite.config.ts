@@ -20,16 +20,8 @@ export default defineConfig({
         WindiCSS(),
         // This plugin allows to autoimport vue components
         Components({
-            /**
-             * The icons resolver finds icons components from 'unplugin-icons' using this convenction:
-             * {prefix}-{collection}-{icon} e.g. <i-mdi-thumb-up />
-             */
             resolvers: [AntDesignVueResolver(), IconsResolver()],
         }),
-        /**
-         * This plugin allows to use all icons from Iconify as vue components
-         * See: https://github.com/antfu/unplugin-icons
-         */
         Icons({
             // This setting will autoinstall the iconify iconset when it's used in the code, e.g, @iconify-json/mdi or @iconify-json/fe
             autoInstall: true,

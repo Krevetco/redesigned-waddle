@@ -1,9 +1,9 @@
-const tailwindcss = require('tailwindcss')
+const WindiCSS = require('vite-plugin-windicss').default
 
 module.exports = {
     plugins: [
         require('postcss-import')(),
-        tailwindcss('./tailwind.config.js'), //This refers to your tailwind config
+        WindiCSS('./tailwind.config.js'), //This refers to your tailwind config
         require('autoprefixer'),
     ],
 }

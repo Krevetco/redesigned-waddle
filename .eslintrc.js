@@ -4,14 +4,6 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    // overrides: [
-    //     {
-    //         files: ['**/*.test.js', '**/*.test.jsx'],
-    //         env: {
-    //             jest: true,
-    //         },
-    //     },
-    // ],
     // Avoids the eslint: no-undef in "<script setup>" compiler macros
     globals: {
         defineProps: 'readonly',

@@ -1,19 +1,36 @@
 import { render, screen } from '@testing-library/vue'
 import buttonWrapper from './buttonWrapper.vue'
+import { mount } from '@vue/test-utils'
 
-test('renders button wrapper', () => {
-    // given(arrange)
-    const options = {
-        slots: {
-            default: 'test button',
-        },
-    }
+describe('button wrapper', () => {
+    it('should render', async () => {
+        expect(buttonWrapper).toBeTruthy()
 
-    // when (act)
-    const { debug } = render(buttonWrapper, options)
+        const options = {
+            slots: {
+                default: 'test button',
+            },
+            props: {
+                newProp: 'valid',
+            },
+        }
 
-    // then (assets)
+        // when (act)
+        const { debug } = render(buttonWrapper, options)
+        screen.getByText(/^test button$/)
+    })
+    it('should click', async () => {
+        // given(arrange)
 
-    screen.debug()
-    screen.getByText(/test/i)
+        expect(buttonWrapper).toBeTruthy()
+
+        const options = {
+            slots: {
+                default: 'test button',
+            },
+        }
+
+        const wrapper = mount(buttonWrapper, options)
+        await wrapper.get('button').trigger('click')
+    })
 })

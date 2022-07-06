@@ -73,7 +73,6 @@ export function createAuth(appOptions: AuthOptions) {
         install: (app: App): void => {
             authInstance = setupAuthPlugin(options)
             app.config.globalProperties.$auth = authInstance
-            app.config.globalProperties.$axios = axios
 
             if (options.autoConfigureNavigationGuards) configureNavigationGuards(options.router, options)
 

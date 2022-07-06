@@ -49,6 +49,9 @@ export default defineConfig({
                 /\.md$/, // .md
             ],
             dts: true, // generate TypeScript declaration
+            eslintrc: {
+                enabled: true, // Default `false`
+            },
         }),
         // This plugin allows to autoimport vue components
         Components({

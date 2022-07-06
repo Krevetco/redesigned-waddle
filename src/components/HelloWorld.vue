@@ -25,7 +25,7 @@
         <button-counter :count="count" :click-event="store.increaseCount" />
     </p>
     <p class="mt-4">Get Todos data once and write it in a store</p>
-    <div class="my-1">
+    <div class="my-1 test-buttons-wrapper">
         <button-wrapper :click-event="store.getTodos">
             <template #icon><VerticalAlignTopOutlined /></template>
             getAxios
@@ -35,7 +35,7 @@
             deleteData
         </button-wrapper>
     </div>
-    <p>{{ importData }}</p>
+    <p class="test-output">{{ importData }}</p>
 </template>
 
 <style scoped>

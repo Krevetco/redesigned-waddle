@@ -19,6 +19,7 @@ module.exports = {
         'prettier',
         'plugin:prettier/recommended',
         './.eslintrc-auto-import.json',
+        'plugin:cypress/recommended',
     ],
     parser: 'vue-eslint-parser',
     parserOptions: {
@@ -38,5 +39,6 @@ module.exports = {
         'vue/multi-word-component-names': ['off'],
         'nonblock-statement-body-position': ['off'],
         '@typescript-eslint/no-empty-function': 'warn', // 'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
+        'cypress/no-unnecessary-waiting': 'off',
     },
 }

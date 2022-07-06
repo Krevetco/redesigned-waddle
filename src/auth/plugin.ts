@@ -1,9 +1,7 @@
-import { App, computed, reactive, readonly, ref } from 'vue'
 import { setupDevtools } from './devtools'
 import { configureAuthorizationHeaderInterceptor } from './interceptors'
 import { configureNavigationGuards } from './navigationGuards'
 import { ANONYMOUS_USER, AuthOptions, AuthPlugin, RequiredAuthOptions, User } from './types'
-import axios from 'axios'
 
 export let authInstance: AuthPlugin | undefined
 
@@ -80,7 +78,6 @@ export function createAuth(appOptions: AuthOptions) {
                 configureAuthorizationHeaderInterceptor(options.axios.instance, options.axios.authorizationHeaderPrefix)
 
             if (import.meta.env.DEV) {
-                // @ts-expect-error: until it gets fixed in devtools
                 setupDevtools(app, authInstance)
             }
         },

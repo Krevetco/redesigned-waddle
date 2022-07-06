@@ -16,7 +16,7 @@ describe('button wrapper', () => {
         }
 
         // when (act)
-        const { debug } = render(buttonWrapper, options)
+        render(buttonWrapper, options)
         screen.getByText(/^test button$/)
     })
     it('should click', async () => {

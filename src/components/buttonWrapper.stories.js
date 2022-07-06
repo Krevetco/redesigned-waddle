@@ -1,7 +1,6 @@
 // YourComponent.stories.js
 
 import buttonWrapper from './buttonWrapper.vue'
-import { VerticalAlignTopOutlined, DeleteOutlined } from '@ant-design/icons-vue'
 //👇 This default export determines where your story goes in the story list
 export default {
     /* 👇 The title prop is optional.

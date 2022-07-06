@@ -14,7 +14,13 @@
 		"paths": {
 			"@/*": ["src/*"]
 		},
-        "types": ["vite-plugin-vue-layouts/client"]
+        "types": ["vite-plugin-vue-layouts/client", "vitest/globals"]
 	},
-	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+	"include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "auto-imports.d.ts"
+    ]
 }

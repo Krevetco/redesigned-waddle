@@ -1,6 +1,6 @@
 #!/bin/sh
 
-STAGED_FILES=$(git diff --staged --name-only --diff-filter=ACM | grep "\.(vue|js|ts)$" | grep -v "node_modules")
+STAGED_FILES=$(git diff --staged --name-only --diff-filter=ACM | grep -E "\.(vue|js|ts)$" | grep -v "node_modules")
 
 if [[ "$STAGED_FILES" = "" ]]; then
 	echo "\t\033[41mNo Files with params Staged!\n"

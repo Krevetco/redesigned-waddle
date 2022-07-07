@@ -5,7 +5,7 @@ declare global {
     const afterAll: typeof import('vitest')['afterAll']
     const afterEach: typeof import('vitest')['afterEach']
     const assert: typeof import('vitest')['assert']
-    const axios: typeof import('axios')['default']
+    const $axios: typeof import('$axios')['default']
     const beforeAll: typeof import('vitest')['beforeAll']
     const beforeEach: typeof import('vitest')['beforeEach']
     const chai: typeof import('vitest')['chai']

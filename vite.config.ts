@@ -37,7 +37,7 @@ export default defineConfig({
                 {
                     axios: [
                         // default imports
-                        ['default', 'axios'], // import { default as axios } from 'axios',
+                        ['default', '$axios'], // import { default as axios } from 'axios',
                     ],
                     pinia: ['defineStore'],
                 },

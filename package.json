@@ -16,19 +16,6 @@
         "test": "vitest",
         "cypress": "npx cypress open"
     },
-    "lint-staged": {
-        "*.js": [
-            "lint"
-        ],
-        "*.vue": [
-            "lint"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged && npm run lint"
-        }
-    },
     "dependencies": {
         "@ant-design/icons-vue": "^6.1.0",
         "@element-plus/icons-vue": "^2.0.6",
@@ -48,7 +35,6 @@
         "eslint-plugin-jsx-a11y": "^6.6.0",
         "eslint-plugin-ts": "^1.0.0",
         "eslint-plugin-typescript": "^0.14.0",
-        "husky": "^8.0.1",
         "jsdom": "^20.0.0",
         "pinia": "^2.0.14",
         "react-dom": "^16.14.0",

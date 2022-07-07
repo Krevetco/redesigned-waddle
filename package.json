@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "scripts": {
         "init": "npm i && find .git/hooks -type l -exec rm {} \\;\n &&  find .githooks -type f -exec ln -sf ../../{} .git/hooks/ \\;",
+        "pre-commit": "find .git/hooks -type l -exec rm {} \\;\n &&  find .githooks -type f -exec ln -sf ../../{} .git/hooks/ \\;",
         "dev": "vite",
         "build": "npm run gen-api && vue-tsc --noEmit && vite build",
         "serve": "vite preview",

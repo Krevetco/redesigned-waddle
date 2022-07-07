@@ -9,6 +9,7 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 import 'virtual:windi.css'
 import 'virtual:windi-devtools'
+import { registerStore } from '@/store'
 
 const auth = createAuth({
     router,
@@ -25,3 +26,4 @@ const pinia = createPinia()
 const app = createApp(App).use(router).use(auth).use(Antd).use(pinia)
 app.provide('enable-route-transitions', true)
 app.mount('#app')
+registerStore()

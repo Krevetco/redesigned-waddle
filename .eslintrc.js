@@ -38,7 +38,8 @@ module.exports = {
         'prettier/prettier': ['warn'],
         'vue/multi-word-component-names': ['off'],
         'nonblock-statement-body-position': ['off'],
-        '@typescript-eslint/no-empty-function': 'warn', // 'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
+        '@typescript-eslint/no-empty-function': 'warn',
         'cypress/no-unnecessary-waiting': 'off',
+        '@typescript-eslint/no-explicit-any': ['off'],
     },
 }

@@ -1,26 +1,11 @@
-export const useStore = defineStore('store', {
-    state: () => {
-        return {
-            count: 0,
-            importData: '',
-        }
-    },
+import { defaultStore } from './defaultStore'
 
-    actions: {
-        increaseCount() {
-            this.count++
-        },
-        getTodos() {
-            if (this.importData) return this.importData
-            else
-                return $axios
-                    .get('https://jsonplaceholder.typicode.com/todos/' + Math.round(Math.random() * 10 + 1))
-                    .then(({ data }) => {
-                        return (this.importData = data)
-                    })
-        },
-        deleteTodos() {
-            this.importData = ''
-        },
-    },
-})
+const appStore: any = {}
+
+export const registerStore = () => {
+    appStore.defaultStore = defaultStore()
+
+    return appStore
+}
+
+export default appStore

@@ -5,10 +5,7 @@ meta:
 </route>
 
 <script setup lang="ts">
-    import { useStore } from '@/store'
-    import { storeToRefs } from 'pinia'
-
-    const store = useStore()
+    const store = $store.defaultStore
     const { importData } = storeToRefs(store)
 
     async function testOpenAPI() {

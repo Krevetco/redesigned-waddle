@@ -1,10 +1,8 @@
 <script setup lang="ts">
-    import { useStore } from '@/store'
-    import { storeToRefs } from 'pinia'
     import { VerticalAlignTopOutlined, DeleteOutlined } from '@ant-design/icons-vue'
 
     defineProps<{ title: string; msg: string; likes?: number }>()
-    const store = useStore()
+    const store = $store.defaultStore
 
     const { count, importData } = storeToRefs(store)
 </script>

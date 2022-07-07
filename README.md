@@ -1,4 +1,4 @@
-# galaxy
+# Galaxy 
 
 Galaxy VUE + VITE template
 
@@ -15,6 +15,8 @@ Galaxy VUE + VITE template
     - [🔗 Path Aliasing](#-path-aliasing)
     - [✨ Routes Transitions](#-routes-transitions)
     - [🪄 Eslint + Prettier](#-eslint--prettier)
+    - [⏯ AutoImports](#)
+    - [🔻 Pre-commit](#)
     - [👤 Authentication System](#-authentication-system)
         - [The Auth Plugin](#the-auth-plugin)
         - [The Navigation Guards](#the-navigation-guards)
@@ -23,7 +25,6 @@ Galaxy VUE + VITE template
   - [📕 StoryBook](#storybook)
   - [🛍 Vitest](#vitest)
   - [💭 Cypress](#cypress)
-- 
 - [Recommended IDE Setup](#recommended-ide-setup)
 
 ## Setup
@@ -206,11 +207,42 @@ See:
 - [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
 - [vue-eslint-parser](https://github.com/vuejs/vue-eslint-parser)
 
-### Pre-commit
+### ⏯ AutoImports
+
+В проекте настроены автоимпорты частоиспользуемых функций для глобального доступа к ним, аналогично nuxt.
+Настраиваются параметры автоимпорта в плагине `AutoImports()` в `vite.config.ts` 
+
+```javascript
+AutoImport({
+    imports: [
+        'vitest',
+        'vue',
+        'vue-router',
+        {
+            axios: [
+                [ 'default', '$axios' ],
+            ],
+            pinia: [ 'defineStore', 'storeToRefs' ],
+            '@/store': [ [ 'default', '$store' ] ],
+        },
+    ],
+})
+```
+
+На данный момент натроены глобальные доступы в `$store` и `$axios`
+После добавления новых испортов, требуется запустить `npm run dev`, и npm сам подтянет новые импорты в файлы конфигурации
+`.eslintrc-auto-import.json` и `auto-imports.d.ts`
+
+### 🔻 Pre-commit
 
 В проекте настроен хук pre-commit, который запускает bash скрипт на проверку проекта через Eslint. Перед каждым коммитом. 
-Для корректной работы, hook pre-commit настроен как через хук `.husky/pre-commit`, так и через стандартные хуки по `.git/hooks/pre-commit`
-Данная когнифигруеция позволяет перехватывать коммит как при использовании терминала, так и при коммитах через GitKraken
+Для корректной работы через стандартные хуки по `.git/hooks/pre-commit`
+Данная когнифигруеция позволяет перехватывать коммит как при использовании терминала, так и при коммитах через GitKraken.
+
+Для настройки работы хука при инициализации проекта надо запустить команду
+```bash
+$ npm run pre-commit
+```
 
 
 ### 👤 Authentication System

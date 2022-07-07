@@ -4,58 +4,80 @@ Galaxy VUE + VITE template
 
 ## Table of contents
 
--   [Setup](#setup)
--   [Build](#build)
--   [Features](#features)
-    -   [🚀 Vue 3 + Vite 2](#-vue-3--vite-2)
-    -   [🦾 TypeScript and SCSS](#-typescript-and-scss)
-    -   [🗂 File system routing](#-file-system-routing)
-    -   [📑 Layouts system](#-layouts-system)
-    -   [🔗 Path Aliasing](#-path-aliasing)
-    -   [😃 Universal Icons Framework](#-universal-icons-framework)
-    -   [✨ Routes Transitions](#-routes-transitions)
-    -   [🪄 Eslint + Prettier](#-eslint--prettier)
-    -   [🔧 OpenAPI Client Generator](#-openapi-client-generator)
-    -   [👤 Authentication System](#-authentication-system)
-        -   [The Auth Plugin](#the-auth-plugin)
-        -   [The Navigation Guards](#the-navigation-guards)
-        -   [The Axios Interceptors](#the-axios-interceptors)
-    -   [🌐 Internationalization: vue-i18n and vue-i18n-extract](#-internationalization-vue-i18n-and-vue-i18n-extract)
--   [Recommended IDE Setup](#recommended-ide-setup)
--   [Deployment](#deployment)
-    -   [Heroku](#heroku)
+- [Setup](#setup)
+- [Build](#build)
+- [Run Tests](#run-tests)
+- [Features](#features)
+    - [🚀 Vue 3 + Vite 2](#-vue-3--vite-2)
+    - [🦾 TypeScript and SCSS](#-typescript-and-scss)
+    - [🗂 File system routing](#-file-system-routing)
+    - [📑 Layouts system](#-layouts-system)
+    - [🔗 Path Aliasing](#-path-aliasing)
+    - [✨ Routes Transitions](#-routes-transitions)
+    - [🪄 Eslint + Prettier](#-eslint--prettier)
+    - [👤 Authentication System](#-authentication-system)
+        - [The Auth Plugin](#the-auth-plugin)
+        - [The Navigation Guards](#the-navigation-guards)
+        - [The Axios Interceptors](#the-axios-interceptors)
+- [Tests](#tests)
+  - [📕 StoryBook](#storybook)
+  - [🛍 Vitest](#vitest)
+  - [💭 Cypress](#cypress)
+- 
+- [Recommended IDE Setup](#recommended-ide-setup)
 
 ## Setup
 
 Установить зависимости
+```bash
+$ npm run init
 ```
-npm install
-```
-
+> Обращаю внимание, что `npm i` не загрузит зависимостии для `GitHooks/PreCommit`.
+> Из-за чего проверка EsLint перед коммитом работать не будет.
 
 Запустите сервер разработки
-```
-npm run dev
+```bash
+$ npm run dev
 ```
 
 ## Build
 
 Чтобы собрать приложение, запустите
-```
-npm run build
+```bash
+$ npm run build
 ```
 
 И для предварительного просмотра после создания приложения запустите
 
+```bash
+$ npm run serve
 ```
-npm run serve
+
+## RUN Tests
+
+Запустить Unit Vitest тесты
+```bash
+$ npm run test
+```
+
+Запустить e2e тесты
+```bash
+$ npm run cypress
+```
+Запустить storybook
+```bash
+$ npm run storybook
+```
+Запустить Eslint
+```bash
+$ npm run lint
 ```
 
 ## Features
 
 ### 🚀 Vue 3 + Vite 2
 
-В этом проекте используется версия Vue3 с мощным **Composition API**.
+В этом проекте используется версия Vue3 с  **Composition API**.
 
 Используется новый `<script setup>` SFCs синтаксис и рекомендуется пользоваться именно им.
 -   [Vue3 Setup](https://vuejs.org/api/composition-api-setup.html#basic-usage)
@@ -66,7 +88,7 @@ npm run serve
 ### 🦾 TypeScript и SCSS
 
 TypeScript - strongly recommended.
-SCSS - опциональная поддержка для тем и глобальных стилей. Остальное рекомендуется писать на TailwindCSS
+SCSS - опциональная поддержка для тем и глобальных стилей. Остальное рекомендуется писать на  WindiCSS(TailwindCSS)
 
 See:
 
@@ -85,7 +107,7 @@ See:
 
 - Сервис для перевода [CSS to HTML](https://transform.tools/css-to-tailwind) 
 
-Благодаря тому что мы используем WindiCSS, в dev версии подключаются все стили, и можно менять стили DOM элементов меняя их класс на другой. Например: `class="h-100px"` поменяли на `class="h-200px"` прямо в инструментах разработчика
+Благодаря тому что мы используем WindiCSS, в dev версии подключаются все стили, и можно менять стили DOM элементов, меняя их класс на другой. Например: `class="h-100px"` поменяли на `class="h-200px"` прямо в инструментах разработчика
 
 ### 🗂 File system routing
 
@@ -317,6 +339,41 @@ See:
 -   [Vue Router - Navigation Guards](https://next.router.vuejs.org/guide/advanced/navigation-guards.html)
 -   [Axios - Interceptors](https://github.com/axios/axios#interceptors)
 -   [Vue Devtools - Plugin Registration](https://devtools.vuejs.org/plugin/plugins-guide.html#registering-your-plugin)
+
+## Tests 
+
+### 📕 StoryBook
+
+Storybook создает изолированные компоненты на основании файлов по типу `component.stories.js`.
+Файлы для компонентов для `storybook` могут лежать как в директории с компонентом, так и в отдельной папке (зависит от проекта)
+
+Запустить storybook
+```bash
+$ npm run storybook
+```
+
+- [StoryBook Doc](https://storybook.js.org/docs/vue/get-started/introduction)
+
+### 🛍 Vitest
+
+Запустить Vitest Unit-тесты
+```bash
+$ npm run test
+```
+
+- [Vitest Doc](https://vitest.dev/guide/)
+
+### 💭 Cypress
+
+Запустить e2e тесты
+```bash
+$ npm run dev
+$ npm run cypress
+```
+> Е2Е тесты работают только при наличии запушенного `dev` сервера.
+> 
+- [Cypress Doc](https://docs.cypress.io/docs)
+- [Main Assertions](https://docs.cypress.io/guides/references/assertions#Chai)
 
 ## Recommended IDE Setup
 
